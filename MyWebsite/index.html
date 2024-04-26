@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clickable Image Grid</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #e2ffe0;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 100px); 
+        grid-gap: 20px;
+    }
+    .grid-item {
+        width: 100px;
+        height: 100px;
+        transition: transform 0.2s ease;
+    }
+    .grid-item img {
+        width: 100%;
+        height: 100%;
+    }
+    .clicked {
+        transform: scale(0.9);
+    }
+</style>
+</head>
+<body>
+<div class="grid-container">
+
+    <div class="grid-item" onclick="playSound('click1')" onmouseenter="playSound('hover1')">
+        <img src="img/1.png" alt="1" onclick="handleClick(this)"></div>
+    <div class="grid-item" onclick="playSound('click2')" onmouseenter="playSound('hover2')">
+        <img src="img/2.png" alt="2" onclick="handleClick(this)"></div>
+    <div class="grid-item" onclick="playSound('click3')" onmouseenter="playSound('hover3')">
+        <img src="img/3.png" alt="3" onclick="handleClick(this)"></div>
+    <div class="grid-item" onclick="playSound('click4')" onmouseenter="playSound('hover4')">
+        <img src="img/4.png" alt="4" onclick="handleClick(this)"></div>
+    <div class="grid-item" onclick="playSound('click5')" onmouseenter="playSound('hover5')">
+        <img src="img/5.png" alt="5" onclick="handleClick(this)"></div>
+    <div class="grid-item" onclick="playSound('click6')" onmouseenter="playSound('hover6')">
+        <img src="img/6.png" alt="6" onclick="handleClick(this)"></div>
+    <div class="grid-item" onclick="playSound('click7')" onmouseenter="playSound('hover7')">
+        <img src="img/7.png" alt="7" onclick="handleClick(this)"></div>
+    <div class="grid-item" onclick="playSound('click8')" onmouseenter="playSound('hover8')">
+        <img src="img/8.png" alt="8" onclick="handleClick(this)"></div>
+    <div class="grid-item" onclick="playSound('click9')" onmouseenter="playSound('hover9')">
+        <img src="img/9.png" alt="9" onclick="handleClick(this)"></div>
+</div>
+
+<audio id="hover1" src="hover1.mp3"></audio>
+<audio id="hover2" src="hover2.mp3"></audio>
+<audio id="hover3" src="hover3.mp3"></audio>
+<audio id="hover4" src="hover4.mp3"></audio>
+<audio id="hover5" src="hover5.mp3"></audio>
+<audio id="hover6" src="hover6.mp3"></audio>
+<audio id="hover7" src="hover7.mp3"></audio>
+<audio id="hover8" src="hover8.mp3"></audio>
+<audio id="hover9" src="hover9.mp3"></audio>
+<audio id="click1" src="click1.mp3"></audio>
+<audio id="click2" src="click2.mp3"></audio>
+<audio id="click3" src="click3.mp3"></audio>
+<audio id="click4" src="click4.mp3"></audio>
+<audio id="click5" src="click5.mp3"></audio>
+<audio id="click6" src="click6.mp3"></audio>
+<audio id="click7" src="click7.mp3"></audio>
+<audio id="click8" src="click8.mp3"></audio>
+<audio id="click9" src="click9.mp3"></audio>
+
+<script>
+    function handleClick(element, soundId) {
+      
+        element.classList.toggle('clicked');
+        
+        playSound(soundId);
+    }
+
+    function playSound(id) {
+        var sound = document.getElementById(id);
+        sound.currentTime = 0;
+        sound.play();
+    }
+    
+</script>
+</body>
+</html>
